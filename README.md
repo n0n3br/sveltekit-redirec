@@ -29,7 +29,7 @@ It can be usefull when using component composition and there's a need to redirec
 // src/+page.svelte
 <script>
   import User from '../components/User.svelte'
-  import Redirect from '@n0n3br/sveltekit-redirect'
+  import Redirect from 'sveltekit-redirect'
 </script>
 <User let:authenticated>
 	{#if !authenticated}
