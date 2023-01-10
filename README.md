@@ -4,6 +4,19 @@ A Svelte component to make the redirect from the template possible.
 
 It can be usefull when using component composition and there's a need to redirect based on a slot prop (let:prop)
 
+## Install
+
+```bash
+
+// using npm
+npm i sveltekit-redirect
+// or using pnpm (recomended)
+pnpm i sveltekit-redirect
+// or using yarn
+yarn add sveltekit-redirect
+
+```
+
 ## Example
 
 ```svelte
