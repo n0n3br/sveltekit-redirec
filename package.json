@@ -1,5 +1,5 @@
 {
-	"name": "redirect",
+	"name": "@n0n3br/sveltekit-redirect",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
