@@ -1,20 +1,41 @@
 # SvelteKit Redirect
 
-A Svelte component to make the redirect from the template possible
+A Svelte component to make the redirect from the template possible.
+
+It can be usefull when using component composition and there's a need to redirect based on a slot prop (let:prop)
 
 ## Example
 
 ```svelte
-// src/test/+page.svelte
-<h1>Redirect test page</h1>
+
+// src/components/User.svelte
+
+<script lang="ts">
+	let authenticated = false;
+
+	interface $$Slots {
+		default: { authenticated: boolean };
+	}
+</script>
+
+<div>
+	<h1>User component</h1>
+	<slot {authenticated} />
+</div>
+
+// src/login/+page.svelte
+<h1>Login page</h1>
 
 // src/+page.svelte
 <script>
+  import User from '../components/User.svelte'
   import Redirect from '@n0n3br/sveltekit-redirect'
-  export let redirect = true;
 </script>
-<h1>Main page</h1>
-{#if redirect}
-    <Redirect path="test">
-{/if}
+<User let:authenticated>
+	{#if !authenticated}
+		<Redirect path="login" />
+	{:else}
+		<h1>Home</h1>
+	{/if}
+</User>
 ```
